@@ -1,0 +1,58 @@
+@import './var';
+@import './common.less';
+
+@keyframes omui-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes omui-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.@{prefix}fade {
+  &-enter-active {
+    animation: @animation-duration-base omui-fade-in;
+    animation-fill-mode: forwards;
+  }
+
+  &-enter-done {
+    display: block;
+  }
+
+  &-exit-active {
+    animation: @animation-duration-base omui-fade-out;
+    animation-fill-mode: forwards;
+  }
+
+  &-exit-done {
+    display: none;
+  }
+}
+
+@keyframes omui-loading-circle {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.@{prefix}loading-circle {
+  display: inline-block;
+  transform-origin: center;
+  animation: omui-loading-circle 1s linear infinite;
+}

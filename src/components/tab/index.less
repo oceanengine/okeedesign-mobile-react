@@ -1,0 +1,14 @@
+@import '../../style/common';
+
+.@{prefix}tab {
+  &__pane {
+    flex-shrink: 0;
+    width: 100%;
+
+    &--inactive {
+      height: 0;
+      padding: 0;
+      pointer-events: none;
+    }
+  }
+}

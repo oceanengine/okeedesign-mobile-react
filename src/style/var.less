@@ -1,0 +1,723 @@
+@import './color-palette/palette.less';
+
+// Animation
+@animation-duration-base: 0.3s;
+@animation-duration-fast: 0.2s;
+
+// color
+@blue: #0278ff;
+@cyan: #00d2d5;
+@orange: #fec038;
+@red: #ff6767;
+@white: #fff;
+@black: #000;
+
+// base
+@primary-color: @blue;
+@primary-color-1: ~`colorPalette('@{primary-color}', 7) `; // 点击 active态
+@primary-color-2: ~`colorPalette('@{primary-color}', 6) `; // 主色 同@primary-color
+@primary-color-3: ~`colorPalette('@{primary-color}', 5) `; //
+@primary-color-4: ~`colorPalette('@{primary-color}', 3) `; // 禁用
+@primary-color-5: ~`colorPalette('@{primary-color}', 1) `; // 浅色
+
+@success-color: @cyan;
+@success-color-1: ~`colorPalette('@{success-color}', 7) `;
+@success-color-2: ~`colorPalette('@{success-color}', 6) `;
+@success-color-3: ~`colorPalette('@{success-color}', 5) `;
+@success-color-4: ~`colorPalette('@{success-color}', 3) `;
+@success-color-5: ~`colorPalette('@{success-color}', 1) `;
+
+@warning-color: @orange;
+@warning-color-1: ~`colorPalette('@{warning-color}', 7) `;
+@warning-color-2: ~`colorPalette('@{warning-color}', 6) `;
+@warning-color-3: ~`colorPalette('@{warning-color}', 5) `;
+@warning-color-4: ~`colorPalette('@{warning-color}', 3) `;
+@warning-color-5: ~`colorPalette('@{warning-color}', 1) `;
+
+@danger-color: @red;
+@danger-color-1: ~`colorPalette('@{danger-color}', 7) `;
+@danger-color-2: ~`colorPalette('@{danger-color}', 6) `;
+@danger-color-3: ~`colorPalette('@{danger-color}', 5) `;
+@danger-color-4: ~`colorPalette('@{danger-color}', 3) `;
+@danger-color-5: ~`colorPalette('@{danger-color}', 1) `;
+
+// gray
+@gray-1: #fafafa;
+@gray-2: #f7f7f7;
+@gray-3: #eeeeee;
+@gray-4: #dcdcdc;
+@gray-5: #c1c1c1;
+
+// text
+@text-color-1: #000000; // 主要文字
+@text-color-2: #333333; // 常规文字
+@text-color-3: #666666; // 次要文字
+@text-color-4: #999999; // 辅助文字
+@text-color-5: #c1c1c1; // 禁用文字
+@text-color-link: @primary-color; // 文字链接
+
+@z-index-1: 1;
+@z-index-2: 3;
+@z-index-3: 5;
+@z-index-4: 7;
+@z-index-5: 10;
+
+// background
+@background-color-base: @white;
+@background-color-active: rgba(153, 153, 153, 0.1);
+
+// button
+@button-active-opacity: 0.12;
+@button-disabled-opacity: 0.3;
+
+@button-large-height: 48px;
+@button-normal-height: 44px;
+@button-small-height: 40px;
+@button-midget-height: 36px;
+@button-mini-height: 32px;
+@button-tiny-height: 28px;
+
+@button-large-font-size: 16px;
+@button-font-size: 16px;
+@button-small-font-size: 16px;
+@button-midget-font-size: 14px;
+@button-mini-font-size: 14px;
+@button-tiny-font-size: 14px;
+
+@button-text-small-font-size: 14px;
+@button-text-mini-font-size: 12px;
+@button-text-tiny-font-size: 12px;
+
+// overlay
+@overlay-background-color: rgba(0, 0, 0, 0.5);
+
+// popup
+@popup-transition: @animation-duration-fast ease-out;
+
+// cell
+@cell-text-color: @text-color-2;
+@cell-background-color: @white;
+@cell-background-color-active: rgba(153, 153, 153, 0.1);
+@cell-border-color: @gray-3;
+
+@cell-icon-size: 18px;
+@cell-large-icon-size: 20px;
+@cell-right-icon-size: 20px;
+
+@cell-tag-font-size: 12px;
+@cell-tag-padding: 4px 8px;
+@cell-tag-text-color: #f45858;
+@cell-tag-background-color: #fff7f6;
+@cell-tag-border-radius: 2px;
+
+@cell-content-color-is-link: @text-color-5;
+@cell-content-color-selected: @text-color-2;
+@cell-content-color-error: #f65656;
+@cell-long-content-color: @text-color-3;
+@cell-long-content-lines: 2;
+
+@cell-gap: 8px;
+@cell-content-width: (194 / 375) * 100%;
+@cell-long-content-gap: 8px;
+
+@cell-padding-horizontal: 16px;
+@cell-padding-vertical: 13px;
+@cell-padding-height-large: 52px;
+@cell-padding-height-normal: 48px;
+@cell-padding-height-small: 44px;
+
+@cell-font-size-large: 16px;
+@cell-line-height-large: 24px;
+@cell-font-size-normal: 14px;
+@cell-line-height-normal: 22px;
+@cell-font-size-small: 14px;
+@cell-line-height-small: 22px;
+
+@cell-long-content-font-size-large: 14px;
+@cell-long-content-line-height-large: 22px;
+@cell-long-content-font-size-normal: 12px;
+@cell-long-content-line-height-normal: 18px;
+@cell-long-content-font-size-small: 12px;
+@cell-long-content-line-height-small: 18px;
+
+@cell-group-title-color: @text-color-1;
+@cell-group-title-padding: 8px 16px;
+@cell-group-title-font-size: 14px;
+@cell-group-title-line-height: 16px;
+
+// dialog
+@dialog-transition: @animation-duration-base;
+@dialog-small-width: 68%;
+@dialog-normal-width: 80%;
+@dialog-large-width: 91.46666667%;
+@dialog-font-size: 16px;
+@dialog-header-font-size: 18px;
+@dialog-header-padding-top: 28px;
+@dialog-header-line-height: 25px;
+@dialog-message-font-size: 14px;
+
+// toast
+@toast-padding: 24px 32px;
+@toast-text-padding: 12px 24px;
+@toast-font-size: 14px;
+@toast-line-height: 20px;
+@toast-text-min-width: 56px;
+@toast-text-max-width: 140px;
+@toast-background-color: rgba(0, 0, 0, 0.8);
+
+// switch
+@switch-width: 32px;
+@switch-height: 20px;
+@switch-border-radius: 14px;
+@switch-background-color: @gray-3;
+@switch-background-disabled-color: @gray-2;
+@switch-after-width: 16px;
+@switch-translateX: 13px;
+@switch-large-width: 40px;
+@switch-large-height: 24px;
+@switch-large-border-radius: 17px;
+@switch-large-after-width: 20px;
+@switch-large-translateX: 17px;
+
+// checker
+@checker-small-height: 28px;
+@checker-small-font-size: 14px;
+@checker-normal-height: 32px;
+@checker-normal-font-size: 14px;
+@checker-disabled-opacity: 0.3;
+
+// header
+@header-height: 44px;
+@header-padding-horizontal: 16px;
+@header-background-color: @white;
+
+@header-icon-size: 22px;
+@header-icon-fill: @text-color-1;
+
+@header-title-font-size: 18px;
+@header-title-font-weight: bold;
+@header-title-text-color: @text-color-1;
+
+@header-line-color: @primary-color;
+@header-line-height: 2px;
+@header-line-bottom: 1px;
+@header-tab-font-size: 17px;
+@header-tab-active-font-size: @header-title-font-size;
+@header-border-color: #e8e8e8;
+
+@header-tab-color: @text-color-2;
+@header-tab-active-color: @primary-color;
+@header-tabs-line-background-color: @primary-color;
+
+// tab
+@tab-text-color: @text-color-4;
+@tab-active-text-color: @text-color-1;
+@tab-disabled-text-color: @text-color-5;
+@tab-font-size: 14px;
+@tab-large-font-size: 16px;
+
+//tabs
+@tabs-default-color: @white;
+@tabs-nav-background-color: @white;
+@tabs-card-height: 30px;
+@tabs-line-height: 52px;
+@tabs-bottom-bar-height: 3px;
+@tabs-bottom-bar-color: @text-color-1;
+
+// radio
+@radio-small-size: 14px;
+@radio-normal-size: 20px;
+@radio-large-size: 24px;
+@radio-small-font-size: 12px;
+@radio-normal-font-size: 16px;
+@radio-large-font-size: 18px;
+@radio-small-label-margin: 4px;
+@radio-normal-label-margin: 8px;
+@radio-large-label-margin: 12px;
+@radio-checked-icon-color: @gray-3;
+@radio-checked-label-color: @black;
+@radio-checked-icon-active-color: @primary-color;
+@radio-checked-label-active-color: @primary-color;
+@radio-disabled-icon-color: @gray-1;
+@radio-disabled-icon-active-color: @text-color-5;
+@radio-disabled-label-color: @text-color-5;
+
+// checkbox
+@checkbox-small-size: 14px;
+@checkbox-normal-size: 20px;
+@checkbox-large-size: 24px;
+@checkbox-small-font-size: 12px;
+@checkbox-normal-font-size: 16px;
+@checkbox-large-font-size: 18px;
+@checkbox-small-label-margin: 4px;
+@checkbox-normal-label-margin: 8px;
+@checkbox-large-label-margin: 12px;
+@checkbox-checked-icon-color: @gray-3;
+@checkbox-checked-label-color: @black;
+@checkbox-checked-icon-active-color: @primary-color;
+@checkbox-checked-label-active-color: @primary-color;
+@checkbox-disabled-icon-color: @gray-1;
+@checkbox-disabled-icon-active-color: @text-color-5;
+@checkbox-disabled-label-color: @text-color-5;
+
+// tree
+@tree-font-size: 14px;
+@tree-background-color: @white;
+@tree-padding: 16px;
+@tree-container-height: 48px;
+@tree-container-background-color-focus: @gray-2;
+@tree-label-padding: 4px;
+@tree-triangular-size: 14px;
+@tree-triangular-transition: @animation-duration-fast ease-out;
+@tree-check-size: 16px;
+@tree-check-icon-size: 12px;
+@tree-check-unchecked-border-color: @gray-4;
+@tree-check-checked-background-color: @primary-color;
+@tree-check-round: 3px;
+@tree-children-indent: 22px;
+
+// collapse
+@collapse-border-color: @gray-3;
+@collapse-border-width: 1PX;
+@collapse-item-border-width: 1PX;
+@collapse-item-divider-width: 1PX;
+@collapse-item-transition-duration: @animation-duration-base;
+@collapse-item-title-disabled-color: @text-color-5;
+@collapse-item-content-background-color: @background-color-base;
+@collapse-item-content-text-color: @text-color-2;
+@collapse-item-content-font-size: 13px;
+@collapse-item-content-line-height: 1.5;
+@collapse-item-message-padding: 12px;
+
+// swipe
+@swipe-indicators-bottom: 16px;
+@swipe-indicator-width: 6px;
+@swipe-indicator-height: 6px;
+@swipe-indicator-border-radius: 50%;
+@swipe-indicator-gap: 4px;
+@swipe-indicator-color: @white;
+@swipe-indicator-opacity: 0.4;
+@swipe-indicator-color-active: @white;
+@swipe-indicator-opacity-active: 1;
+
+// dropdown
+@dropdown-height: 47px;
+@dropdown-background-color: @white;
+@dropdown-title-disabled-color: @text-color-5;
+@dropdown-title-font-size: 16px;
+
+// notice-bar
+@notice-bar-color: @text-color-2;
+@notice-bar-background-color: @warning-color;
+@notice-bar-font-size: 12px;
+@notice-bar-padding: 9px 16px;
+@notice-bar-height: 18px;
+
+// tag
+@tag-height: 20px;
+@tag-padding: 0 8px;
+@tag-large-padding: 0 10px;
+@tag-font-size: 12px;
+@tag-medium-font-size: 14px;
+@tag-large-font-size: 16px;
+@tag-round-border-radius: 10px;
+
+// pull-refresh
+@pull-refresh-head-height: 22px;
+@pull-refresh-head-text-color: #555;
+@pull-refresh-head-font-size: 13px;
+
+// action-sheet
+@action-sheet-max-height: 90%;
+@action-sheet-header-font-size: 16px;
+@action-sheet-item-height: 47px;
+@action-sheet-item-background: @white;
+@action-sheet-item-font-size: 16px;
+@action-sheet-item-text-color: @text-color-2;
+@action-sheet-item-disabled-text-color: @text-color-5;
+@action-sheet-active-color: @primary-color;
+@action-sheet-subname-color: @text-color-4;
+@action-sheet-subname-font-size: 12px;
+@action-sheet-close-icon-size: 18px;
+@action-sheet-close-icon-color: @black;
+@action-sheet-cancel-padding-color: @gray-2;
+
+// badge
+@badge-text-color: @white;
+@badge-background-color: @danger-color;
+@badge-border-color: @white;
+@badge-height: 16px;
+@badge-padding-horizontal: 4px;
+@badge-font-size: 12px;
+@badge-dot-size: 8px;
+
+// field
+@field-font-size: 14px;
+@field-line-height: 22px;
+
+@field-large-font-size: 16px;
+@field-large-line-height: 24px;
+
+@field-limit-line-height: 22px;
+@field-limit-font-size: 12px;
+
+@field-clear-width: 18px;
+@field-large-clear-width: 20px;
+
+@field-error-text-font-size: 12px;
+@field-error-text-line-height: 18px;
+
+@field-error-text-padding-top: 4px;
+@field-error-text-padding-bottom: 0px;
+
+@field-label-block-font-size: 14px;
+@field-large-label-block-font-size: 16px;
+
+@field-label-block-line-height: 22px;
+@field-label-block-padding-top: 14px;
+
+@field-body-label-block-padding-top: 36px;
+
+@field-item-label-block-padding-top: 13px;
+@field-item-label-block-padding-bottom: 13px;
+@field-item-label-block-line-height: 22px;
+@field-large-item-label-block-line-height: 22px;
+
+@field-border-color: @gray-3;
+@field-background-color: @background-color-base;
+@field-disabled-background-color: @gray-1;
+@field-readonly-background-color: @gray-1;
+@field-color: @text-color-3;
+@field-caret-color: @primary-color;
+@field-placeholder-color: @text-color-5;
+@field-disabled-color: @text-color-5;
+
+@field-label-color: @text-color-3;
+@field-label-block-color: @text-color-3;
+@field-label-right-color: @text-color-2;
+
+@field-clear-fill: @gray-4;
+
+@field-textarea-font-size: @field-font-size;
+@field-large-textarea-font-size: @field-large-font-size;
+@field-textarea-label-color: @field-label-color;
+@field-textarea-label-line-height: 24px;
+@field-textarea-border-radius: 0px;
+@field-textarea-padding: 0.00001px;
+@field-textarea-margin-top: 0px;
+@field-textarea-background-color: transparent;
+@field-textarea-word-limit-color: @text-color-5;
+
+// slider
+@slider-active-background-color: @primary-color;
+@slider-inactive-background-color: @gray-4;
+@slider-button-background-color: @white;
+@slider-button-border-color: @primary-color;
+@slider-bar-height: 2px;
+@slider-button-size: 22px;
+
+// loading
+@loading-icon-height: 16px;
+@loading-font-size: 12px;
+
+// progress
+@progress-bar-height: 4px;
+@progress-bar-color: @primary-color;
+@progress-bar-color-inactive: #e0e0e0;
+@progress-bar-color-complete: #6abf40;
+@progress-track-color: #e0e0e0;
+@progress-track-color-inactive: #ebebeb;
+@progress-pivot-min-width: 47px;
+@progress-pivot-height: 20px;
+@progress-pivot-padding: 8px;
+@progress-pivot-font-size: 12px;
+@progress-pivot-line-height: 12px;
+@progress-pivot-color-float-inactive: #c1c1c1;
+@progress-pivot-text-color-float: @white;
+
+// pull-refresh
+@pull-refresh-head-text-color: @text-color-4;
+@pull-refresh-head-height: 50px;
+@pull-refresh-head-padding: 16px;
+@pull-refresh-icon-height: 14px;
+@pull-refresh-head-font-size: 12px;
+@pull-refresh-icon-large-height: 16px;
+@pull-refresh-head-large-font-size: 14px;
+
+// date-time-picker
+@date-time-picker-range-height: 48px;
+@date-time-picker-font-size: 14px;
+@date-time-picker-padding: 16px;
+
+// picker
+@picker-header-border-color: @gray-3;
+@picker-toolbar-height: 48px;
+@picker-title-font-size: 16px;
+@picker-title-font-weight: 400;
+@picker-title-color: #333;
+@picker-height: 220px;
+@picker-indicator-height: 50px;
+@picker-column-option-height: 44px;
+@picker-indicator-color: @gray-3;
+
+@picker-cancel-font-size: 16px;
+@picker-cancel-font-weight: 400;
+@picker-cancel-btn-color: @primary-color;
+@picker-cancel-btn-active-color: darken(@primary-color, 10%);
+
+@picker-confirm-font-size: 16px;
+@picker-confirm-font-weight: 400;
+@picker-confirm-btn-color: @primary-color;
+@picker-confirm-btn-active-color: darken(@primary-color, 10%);
+
+@picker-column-font-size: 14px;
+@picker-column-font-weight: 400;
+@picker-column-color: #333;
+
+@picker-column-active-font-size: 14px;
+@picker-column-active-font-weight: 400;
+@picker-column-active-color: #333;
+@picker-column-item-padding: 0 4px;
+
+// search
+@search-height: 44px;
+@search-content-height: 30px;
+@search-content-large-height: 36px;
+@search-content-background-color: @gray-2;
+@search-content-border-radius: 32px;
+@search-content-square-border-radius: 4px;
+@search-padding: 16px;
+@search-font-size: 14px;
+@search-content-padding: 12px;
+@search-icon-margin: 8px;
+@search-color: @text-color-2;
+@search-placeholder-color: @text-color-5;
+@search-caret-color: @primary-color;
+@search-line-height: 22px;
+@search-icon-height: 16px;
+@search-icon-fill: @gray-4;
+
+// dropdown
+@dropdown-height: 47px;
+@dropdown-line-height: 22px;
+@dropdown-background-color: @white;
+@dropdown-title-disabled-color: @text-color-5;
+@dropdown-title-font-size: 16px;
+@dropdown-icon-size: 20px;
+@dropdown-icon-color: @primary-color;
+@dropdown-title-active-color: @primary-color;
+@dropdown-title-default-color: @text-color-2;
+
+// infinite-scroll
+@infinite-scroll-preload-height: 90px;
+
+// popup-drill-down
+@popup-drill-down-header-font-size: 16px;
+@popup-drill-down-header-height: 56px;
+@popup-drill-down-header-btn-height: 40px;
+@popup-drill-down-header-btn-padding: 16px;
+@popup-drill-down-header-title-padding: 56px;
+@popup-drill-down-header-border-radius: 16px 16px 0 0;
+@popup-drill-down-header-border-color: #ebebeb;
+
+// calendar
+@calendar--color: @text-color-2;
+@calendar-bg-color: @background-color-base;
+@calendar-header-height: 52px;
+@calendar-border-color: @gray-3;
+@calendar-header-title-font-size: 16px;
+@calendar-header-title-font-weight: 500;
+@calendar-header-button-padding: 16px;
+@calendar-operations-height: 52px;
+@calendar-operations-color: rgba(0, 0, 0, 0.84);
+@calendar-operations-padding: 16px;
+@calendar-operations-icon-size: 22px;
+@calendar-operations-title-font-size: 16px;
+@calendar-operations-title-font-weight: 16px;
+@calendar-panel-item-height: 52px;
+@calendar-panel-item-border: 1PX;
+@calendar-panel-item-font-size: 16px;
+@calendar-panel-item-font-weight: 400;
+@calendar-panel-item-border-radius: 4px;
+@calendar-panel-item-is-left-border-radius: 4px 0 0 4px;
+@calendar-panel-item-is-right-border-radius: 0 4px 4px 0;
+@calendar-panel-item-border-color: @white;
+@calendar-panel-item-is-today-bg-color: #ebebeb;
+@calendar-panel-item-is-weekend-color: #338AFF;
+@calendar-panel-item-is-cross-month-color: @gray-5;
+@calendar-panel-item-is-weekend-is-cross-month-color: #A1CAFF;
+@calendar-panel-item-is-disabled-bg-color: @gray-1;
+@calendar-panel-item-is-disabled-color: @gray-5;
+
+@calendar-panel-item-isActive-bg-color: #0672FF;
+@calendar-panel-item-isActive-color: @white;
+
+@calendar-panel-item-isSurrounded-bg-color: #EBF3FF;
+
+
+// cascader
+@cascader-column-border-color: @gray-3;
+@cascader-row-height: 48px;
+@cascader-row-padding-horizontal: 16px;
+@cascader-row-padding-vertical: 13px;
+@cascader-row-color: #333;
+@cascader-row-font-size: 14px;
+@cascader-row-line-height: 22px;
+@cascader-row-font-weight: bold;
+
+@cascader-max-height: (@cascader-row-height * 4);
+@cascader-bg-color: @white;
+
+@cascader-row-icon-size: 20px;
+@cascader-row-icon-margin-right: (@cascader-row-padding-horizontal / 2);
+@cascader-row-icon-color: @primary-color-2;
+
+@cascader-row-badge-size: 20px;
+@cascader-row-badge-color: #999;
+
+// 中间节点选中态
+@cascader-row-active-color: @primary-color-2;
+@cascader-row-active-bg-color: @gray-2;
+
+// 叶子节点选中态
+@cascader-row-checked-padding-right: @cascader-row-icon-size + @cascader-row-padding-horizontal;
+@cascader-row-has-badge-padding-right: @cascader-row-badge-size + @cascader-row-padding-horizontal;
+
+// cascader-sliding
+@cascader-sliding-column-border-color: @gray-3;
+@cascader-sliding-row-height: 48px;
+@cascader-sliding-row-padding-horizontal: 16px;
+@cascader-sliding-row-color: #333;
+@cascader-sliding-row-font-size: 14px;
+@cascader-sliding-row-font-weight: bold;
+
+@cascader-sliding-bg-color: @white;
+
+@cascader-sliding-header-height: 52px;
+@cascader-sliding-header-padding-horizontal: 12px;
+@cascader-sliding-header-font-size: 14px;
+@cascader-sliding-header-border-color: @gray-3;
+@cascader-sliding-header-placeholder-color: @text-color-5;
+@cascader-sliding-header-item-height: 28px;
+@cascader-sliding-header-item-border-radius: 4px;
+@cascader-sliding-header-item-padding: 2px 8px;
+@cascader-sliding-header-item-color: #34333B;
+@cascader-sliding-header-item-bg-color: @gray-2;
+@cascader-sliding-header-item-active-color: @primary-color-2;
+@cascader-sliding-header-item-active-bg-color: #EEEBFF;
+@cascader-sliding-header-icon-color: #96959D;
+@cascader-sliding-header-icon-size: 12px;
+@cascader-sliding-header-icon-padding-horizontal: 4px;
+
+@cascader-sliding-content-height: (@cascader-sliding-row-height * 4);
+
+@cascader-sliding-row-icon-size: 16px;
+@cascader-sliding-row-icon-margin-right: (@cascader-sliding-row-padding-horizontal / 2);
+@cascader-sliding-row-icon-color: @primary-color-2;
+
+@cascader-sliding-row-badge-size: 20px;
+@cascader-sliding-row-badge-color: #999;
+
+// 中间节点选中态
+@cascader-sliding-row-active-color: @primary-color-2;
+@cascader-sliding-row-active-bg-color: transparent;
+
+// 叶子节点选中态
+@cascader-sliding-row-checked-padding-right: @cascader-sliding-row-icon-size + @cascader-sliding-row-padding-horizontal;
+@cascader-sliding-row-has-badge-padding-right: @cascader-sliding-row-badge-size + @cascader-sliding-row-padding-horizontal;
+
+// toolbar for form element
+@toolbar-height: 52px;
+@toolbar-padding-horizontal: 16px;
+@toolbar-border-color: @gray-3;
+@toolbar-title-color: #333;
+@toolbar-title-font-size: 16px;
+@toolbar-title-font-weight: 500;
+@toolbar-cancel-btn-color: #333;
+@toolbar-cancel-btn-active-color: darken(#333, 10%);
+@toolbar-cancel-btn-font-size: 16px;
+@toolbar-cancel-btn-font-weight: 400px;
+@toolbar-confirm-btn-color: @primary-color;
+@toolbar-confirm-btn-active-color: darken(@primary-color, 10%);
+@toolbar-confirm-btn-font-size: 16px;
+@toolbar-confirm-btn-font-weight: 400px;
+
+// Table
+@table-border-color: #EBEBEB;
+@table-td-color: @text-color-2;
+@table-td-bg-color: @white;
+@table-td-font-size: 12px;
+@table-td-font-weight: 400;
+@table-td-line-height: 18px;
+@table-td-padding: 12px;
+@table-thead-td-padding: 10px 12px;
+@table-thead-th-bg-color: @gray-2;
+@table-thead-th-color: @text-color-3;
+
+@table-td-sticky-z-index: @z-index-1;
+@table-th-sticky-z-index: @z-index-2;
+@table-th-sticky-horizontal-z-index: @z-index-3;
+
+@table-shadow-z-index: @z-index-2;
+
+@table-shadow-width: 6px;
+@table-shadow-left-bg: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0) 100%);
+@table-shadow-right-bg: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0.06)  100%);
+
+@table-sort-icon-size: 12px;
+@table-sort-icon-padding: 3px 4px;
+@table-sort-icon-active-color: @primary-color;
+@table-sort-icon-default-color: @gray-5;
+
+@table-filter-icon-size: 12px;
+@table-filter-icon-padding: 3px 4px;
+
+@table-expand-icon-size: 16px;
+@table-expand-icon-color: @gray-5;
+@table-expand-duration: @animation-duration-base;
+
+@empty-content-color: @text-color-4;
+@empty-content-font-size: 12px;
+@table-empty-content-bg-color: @white;
+@table-empty-height: 300px;
+
+@table-indicator-height: 30px;
+@table-indicator-bg-color: @white;
+
+@table-indicator-item-size: 6px;
+@table-indicator-border-radius: 50%;
+@table-indicator-margin: 8px;
+@table-indicator-color: #E0E0E0;
+@table-indicator-active-color: @primary-color;
+
+@slider-indicator-size: 24PX; /* no */
+@slider-indicator-border-width: 2PX; /* no */
+@slider-indicator-bg-color: #fff;
+@slider-indicator-border-color: #338AFF; // @blue-6
+@slider-indicator-active-bg-color: #fff;
+@slider-indicator-active-border-color: #0672FF; // @blue-7
+@slider-indicator-disabled-bg-color: #fff;
+@slider-indicator-disabled-border-color: #A1CAFF; // @blue-3
+
+@slider-indicator-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+
+@slider-track-width: 2PX; /* no */
+@slider-track-color: #E0E0E0; // @gray-6
+@slider-track-active-color: #E0E0E0; // @gray-6
+@slider-track-disabled-color: #F0F0F0; // @gray-4
+
+@slider-fill-color: #338AFF;
+@slider-fill-active-color: #0672FF;
+@slider-fill-disabled-color: #A1CAFF;
+
+@slider-tick-size: 8PX; /* no */
+@slider-tick-color: #E0E0E0;
+@slider-tick-active-color: #338AFF;
+@slider-tick-disabled-color: #F0F0F0;
+@slider-tick-active-disabled-color: #A1CAFF;
+
+@slider-mark-margin-top: 15px;
+@slider-mark-font-size: 17px;
+@slider-mark-font-weight: normal;
+@slider-mark-line-height: 24px;
+@slider-mark-color: #333;

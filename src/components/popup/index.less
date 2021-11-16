@@ -1,0 +1,132 @@
+@import '../../style/common';
+
+.@{prefix}overflow-hidden {
+  overflow: hidden !important;
+}
+
+.@{prefix}popup {
+  position: fixed;
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: @white;
+  -webkit-overflow-scrolling: touch;
+
+  &--center {
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: @animation-duration-base ease-out;
+  }
+
+  &--top {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &-slide-top-enter-active,
+  &-slide-top-exit-active,
+  &-slide-bottom-enter-active,
+  &-slide-bottom-exit-active,
+  &-slide-left-enter-active,
+  &-slide-left-exit-active,
+  &-slide-right-enter-active,
+  &-slide-right-exit-active,
+  &-slide-top-appear-active,
+  &-slide-bottom-appear-active,
+  &-slide-left-appear-active,
+  &-slide-right-appear-active {
+    transition: @popup-transition;
+  }
+
+  &-slide-top-enter,
+  &-slide-top-appear {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &-slide-top-enter-active,
+  &-slide-top-appear-active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &-slide-top-exit-active {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &-slide-top-exit-done {
+    display: none;
+  }
+
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &-slide-bottom-enter,
+  &-slide-bottom-appear {
+    display: block;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  &-slide-bottom-enter-active,
+  &-slide-bottom-appear-active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &-slide-bottom-exit-active {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  &-slide-bottom-exit-done {
+    display: none;
+  }
+
+  &--left {
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+
+  &-slide-left-enter,
+  &-slide-left-appear {
+    transform: translate3d(-100%, -50%, 0);
+  }
+
+  &-slide-left-enter-active,
+  &-slide-left-appear-active {
+    transform: translate3d(0, -50%, 0);
+  }
+
+  &-slide-left-exit-active {
+    transform: translate3d(-100%, -50%, 0);
+  }
+
+  &-slide-left-exit-done {
+    display: none;
+  }
+
+  &--right {
+    top: 50%;
+    right: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+
+  &-slide-right-enter,
+  &-slide-right-appear {
+    transform: translate3d(100%, -50%, 0);
+  }
+
+  &-slide-right-enter-active,
+  &-slide-right-appear-active {
+    transform: translate3d(0, -50%, 0);
+  }
+
+  &-slide-right-exit-active {
+    transform: translate3d(100%, -50%, 0);
+  }
+
+  &-slide-right-exit-done {
+    display: none;
+  }
+}

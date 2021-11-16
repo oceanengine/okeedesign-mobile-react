@@ -1,0 +1,66 @@
+@import '../../style/common';
+
+.@{prefix}notice-bar {
+  position: relative;
+  display: flex;
+  padding: @notice-bar-padding;
+  color: @notice-bar-color;
+  font-size: @notice-bar-font-size;
+  background: @warning-color-5;
+
+  &__content {
+    display: -webkit-box;
+    overflow: hidden;
+    line-height: @notice-bar-height;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+
+    &--right {
+      margin-right: 24px;
+    }
+  }
+
+  &__left {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    fill: @warning-color;
+  }
+
+  &--none {
+    display: none;
+  }
+
+  &--primary {
+    background: @primary-color-5;
+
+    .@{prefix}notice-bar__left {
+      fill: @primary-color;
+    }
+  }
+
+  &--success {
+    background: @success-color-5;
+
+    .@{prefix}notice-bar__left {
+      fill: @success-color;
+    }
+  }
+
+  &--danger {
+    background: @danger-color-5;
+
+    .@{prefix}notice-bar__left {
+      fill: @danger-color;
+    }
+  }
+
+  &__right {
+    position: absolute;
+    top: 11px;
+    right: 16px;
+  }
+}

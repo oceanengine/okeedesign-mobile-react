@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true
+  },
+  "include": ["./typings/index.d.ts", "docs/**/*", "src/**/*"],
+  "exclude": ["node_modules"]
+}

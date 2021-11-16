@@ -1,0 +1,41 @@
+@import '../../style/common';
+
+.@{prefix}dropdown-item {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+
+  &--down {
+    top: @dropdown-height;
+  }
+
+  &--up {
+    top: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &__cell {
+    padding: 15px 16px;
+    .@{prefix}cell__content {
+      width: auto;
+      line-height: 0;
+    }
+    .@{prefix}cell__whitespace {
+      flex: none;
+      width: 0;
+    }
+    .@{prefix}cell__title {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__icon {
+    width: @dropdown-icon-size;
+    height: @dropdown-icon-size;
+    fill: @dropdown-icon-color;
+  }
+}

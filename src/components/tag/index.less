@@ -1,0 +1,78 @@
+@import '../../style/common';
+
+@tag-text-color-default: @text-color-2;
+@tag-background-color-default: @gray-4;
+@tag-line-height-large: (20 / 12);
+@tag-line-height-normal: (20 / 12);
+@tag-line-height-small: (20 / 12);
+@tag-font-size-large: 16px;
+@tag-font-size-normal: 14px;
+@tag-font-size-small: 12px;
+@tag-padding-vertical-large: 0;
+@tag-padding-vertical-normal: 0;
+@tag-padding-vertical-small: 0;
+@tag-padding-horizontal-large: 10px;
+@tag-padding-horizontal-normal: 8px;
+@tag-padding-horizontal-small: 8px;
+// @tag-border-radius-large: 1px;
+// @tag-border-radius-normal: 1px;
+// @tag-border-radius-small: 1px;
+
+.@{prefix}tag {
+  position: relative;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: @tag-text-color-default;
+  background-color: @tag-background-color-default;
+
+  .okui-border-radius(1);
+
+  &&--plain::after {
+    border-color: currentColor;
+    border-width: 1px;
+  }
+
+  each(small normal large, .(@value) {
+    @size: @value;
+    @font-size: 'tag-font-size-@{size}';
+    @line-height: 'tag-line-height-@{size}';
+    @line-height-unit: get-unit(@@line-height);
+    @height: if(boolean(@line-height-unit), @@line-height, @@font-size * @@line-height);
+    @padding-v: 'tag-padding-vertical-@{size}';
+    @padding-h: 'tag-padding-horizontal-@{size}';
+    // @border-radius: 'tag-border-radius-@{size}';
+    @round-border-radius: (@height / 2);
+
+    &--@{size} {
+      font-size: @@font-size;
+      line-height: @@line-height;
+      padding: @@padding-v @@padding-h;
+    }
+
+    &--@{size}&--round {
+      border-radius: @round-border-radius;
+
+      &::after {
+        border-radius: @round-border-radius * 2;
+      }
+    }
+  });
+
+  each(primary success warning danger, .(@value) {
+    @type: @value;
+
+    &--@{type} {
+      @color: '@{type}-color';
+      @bg-color: '@{type}-color-5';
+      color: @@color;
+      background-color: @@bg-color;
+    }
+  });
+
+  &--plain {
+    background-color: @white;
+  }
+}

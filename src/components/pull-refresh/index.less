@@ -1,0 +1,101 @@
+@import '../../style/common';
+
+.@{prefix}pull-refresh {
+  overflow: hidden;
+  user-select: none;
+
+  // to support dragging to ceiling, and then refresh
+  // disable this options
+  // touch-action: none;
+
+  &__track {
+    position: relative;
+    height: 100%;
+  }
+
+  &__head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: @pull-refresh-head-height;
+    overflow: hidden;
+    text-align: center;
+    transform: translateY(-100%);
+
+    .@{prefix}pull-refresh__wrp {
+      padding-top: @pull-refresh-head-padding;
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: @pull-refresh-head-height;
+    overflow: hidden;
+    text-align: center;
+    transform: translateY(100%);
+
+    .@{prefix}pull-refresh__wrp {
+      padding-bottom: @pull-refresh-head-padding;
+    }
+  }
+
+  &__icon {
+    width: @pull-refresh-icon-height;
+    height: @pull-refresh-icon-height;
+    fill: @primary-color;
+  }
+
+  &__wrp {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: @pull-refresh-icon-height;
+    color: @pull-refresh-head-text-color;
+    font-size: @pull-refresh-head-font-size;
+    line-height: @pull-refresh-icon-height;
+
+    &__text {
+      margin-left: 10px;
+    }
+
+    &--large {
+      height: @pull-refresh-icon-large-height;
+      font-size: @pull-refresh-head-large-font-size;
+      line-height: @pull-refresh-icon-large-height;
+
+      .@{prefix}pull-refresh__icon {
+        width: @pull-refresh-icon-large-height;
+        height: @pull-refresh-icon-large-height;
+      }
+    }
+
+    &--default&__text {
+      margin-left: 0;
+    }
+
+    &--loading .@{prefix}pull-refresh__icon {
+      transform-origin: 50% 50%;
+      animation: spin 870ms infinite;
+      animation-play-state: running;
+    }
+
+    &--success .@{prefix}pull-refresh__icon {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

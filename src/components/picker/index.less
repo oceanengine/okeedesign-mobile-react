@@ -1,0 +1,38 @@
+@import '../../style/common.less';
+
+.@{prefix}picker {
+  background-color: white;
+
+  &__content {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+
+  &__mask {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, @white 0%, rgba(255, 255, 255, 0.2) 100%),
+      linear-gradient(to top, @white 0%, rgba(255, 255, 255, 0.2) 100%);
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+    background-size: 100% calc((100% - @picker-indicator-height) / 2);
+    transform: translate3d(0, 0, 0);
+    pointer-events: none;
+  }
+
+  &__indicator {
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    z-index: 3;
+    width: 200%;
+    height: (@picker-indicator-height * 2);
+    border-top: 1px solid @picker-indicator-color;
+    border-bottom: 1px solid @picker-indicator-color;
+    transform: translate3d(0, -50%, 0) scale(0.5);
+    pointer-events: none;
+  }
+}

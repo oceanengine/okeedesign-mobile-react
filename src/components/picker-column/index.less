@@ -1,0 +1,29 @@
+@import '../../style/common.less';
+
+.@{prefix}picker-column {
+  flex: 1;
+  min-width: 0;
+  overscroll-behavior: none;
+
+  &__wrapper {
+    height: 100%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: @picker-column-option-height;
+    padding: @picker-column-item-padding;
+    color: @picker-column-color;
+    font-weight: @picker-column-font-weight;
+    font-size: @picker-column-font-size;
+    text-align: center;
+
+    &--active {
+      color: @picker-column-active-color;
+      font-weight: @picker-column-active-font-weight;
+      font-size: @picker-column-active-font-size;
+    }
+  }
+}

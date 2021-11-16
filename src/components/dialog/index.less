@@ -1,0 +1,96 @@
+@import '../../style/common';
+
+.@{prefix}dialog {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  width: @dialog-normal-width;
+  overflow: hidden;
+  font-size: @dialog-font-size;
+  background-color: @white;
+  transform: translate3d(-50%, -50%, 0);
+  backface-visibility: hidden; // avoid blurry text after scale animation
+  .okui-border-radius(3);
+
+  &--small {
+    width: @dialog-small-width;
+  }
+
+  &--large {
+    width: @dialog-large-width;
+  }
+
+  &-bounce-appear {
+    transform: translate3d(-50%, -50%, 0) scale(0.7);
+    opacity: 0;
+  }
+
+  &-bounce-appear-active {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 1;
+    transition: @dialog-transition;
+  }
+
+  &-bounce-enter {
+    transform: translate3d(-50%, -50%, 0) scale(0.7);
+    opacity: 0;
+  }
+
+  &-bounce-enter-active {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 1;
+    transition: @dialog-transition;
+  }
+
+  &-bounce-exit-active {
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+    opacity: 0;
+    transition: @dialog-transition;
+  }
+
+  &-bounce-exit-done {
+    display: none;
+  }
+
+  &__header {
+    padding: @dialog-header-padding-top 38px 16px 38px;
+    color: @text-color-1;
+    font-size: @dialog-header-font-size;
+    line-height: @dialog-header-line-height;
+    text-align: center;
+
+    &--has-content {
+      padding-bottom: 0;
+    }
+  }
+
+  &__message {
+    padding: 28px 28px 20px 28px;
+    // overflow-y: auto;
+    font-size: @dialog-message-font-size;
+    line-height: (20 / 14);
+    text-align: center;
+
+    &--has-title {
+      padding-top: 12px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+
+    .@{prefix}button {
+      flex: 1;
+    }
+  }
+
+  &__cancel {
+    color: @text-color-4;
+  }
+
+  &__confirm {
+    color: @primary-color;
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../style/common.less';
+
+.@{prefix}toolbar {
+  &__toolbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: @toolbar-height;
+    .@{prefix}button--large {
+      width: auto;
+      padding-right: @toolbar-padding-horizontal;
+      padding-left: @toolbar-padding-horizontal;
+    }
+  }
+
+  &__title {
+    color: @toolbar-title-color;
+    font-weight: @toolbar-title-font-weight;
+    font-size: @toolbar-title-font-size;
+  }
+
+  &__button--cancel {
+    position: absolute;
+    left: 0;
+    height: @toolbar-height;
+    color: @toolbar-cancel-btn-color;
+    font-weight: @toolbar-cancel-btn-font-weight;
+    font-size: @toolbar-cancel-btn-font-size;
+    line-height: @toolbar-height;
+
+    &:active {
+      color: @toolbar-cancel-btn-active-color;
+    }
+  }
+
+  &__button--confirm {
+    position: absolute;
+    right: 0;
+    height: @toolbar-height;
+    color: @toolbar-confirm-btn-color;
+    font-weight: @toolbar-confirm-btn-font-weight;
+    font-size: @toolbar-confirm-btn-font-size;
+    line-height: @toolbar-height;
+
+    &:active {
+      color: @toolbar-confirm-btn-active-color;
+    }
+  }
+
+  &__header--showBottomLine {
+    .@{prefix}toolbar__toolbar {
+      &::after {
+        .hairline-bottom(@toolbar-border-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.demo-cell {
+  // margin-top: 16px;
+  &-content-slot {
+    padding: 16px 0;
+  }
+  &-header {
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      line-height: 22px;
+      &__left {
+        color: #C1C1C1;
+        font-family: PingFang SC;
+        font-style: normal;
+        font-weight: normal;
+      }
+    }
+    &-line {
+      margin-top: 9px;
+      height: 1px;
+      background-color: #ebebeb;
+      position: relative;
+      &::before {
+        display: inline-block;
+        content: '';
+        width: 32px;
+        height: 3px;
+        background: #3337c5;
+        position: absolute;
+        top: -1px;
+      }
+    }
+  }
+}

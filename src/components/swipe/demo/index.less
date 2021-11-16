@@ -1,0 +1,45 @@
+
+.demo-swipe {
+  .swipe-item {
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+  }
+
+  .omui-swipe__track {
+    .swipe-item {
+      color: #fff;
+    }
+
+    &:nth-child(odd) {
+      .swipe-item {
+        background: #58a0ff;
+      }
+    }
+
+    &:nth-child(even) {
+      .swipe-item {
+        background: #a1caff;
+      }
+    }
+  }
+
+  .custom-indicator {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 4px 6px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .button-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 16px;
+
+    > *:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+}

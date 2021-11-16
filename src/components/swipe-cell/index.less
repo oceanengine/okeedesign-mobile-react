@@ -1,0 +1,30 @@
+@import '../../style/common';
+
+.@{prefix}swipe-cell {
+  position: relative;
+  overflow: hidden;
+
+  &__wrapper {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+  }
+
+  &__left,
+  &__right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+  }
+
+  &__left {
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  &__right {
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}

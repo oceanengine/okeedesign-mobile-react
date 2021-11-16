@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="format-detection" content="telephone=no,email=no"/> 
+  <meta name="mobile-web-app-capable" content="yes">   
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"/>
+  <meta http-Equiv="Pragma" Content="no-cache"/>
+  <meta http-Equiv="Expires" Content="0"/>
+  <title>OKee-Mobile-React-Docs</title>
+  <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.chunks['index'].css%>">
+  <script>    
+    (function(win, export_obj) {
+        win['TeaAnalyticsObject'] = export_obj;
+        if (!win[export_obj]) {
+            function _collect() {
+                _collect.q.push(arguments);
+            }
+            _collect.q = _collect.q || [];
+            win[export_obj] = _collect;            
+        }
+        win[export_obj].l = +new Date();
+    })(window, 'collectEvent');
+  </script>
+  <script async src="https://lf3-data.volccdn.com/obj/data-static/log-sdk/collect/collect-autotrack-rangers.js"></script>
+  <script>
+    window.collectEvent('init', { 
+      app_id: 219329,
+      channel: 'cn', 
+      autotrack: false  //默认关闭，需要热力图及圈选功能可开启
+    });
+    window.collectEvent('start')
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="<%=htmlWebpackPlugin.files.chunks['index'].entry%>"></script>
+</body>
+</html>

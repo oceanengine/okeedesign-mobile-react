@@ -1,0 +1,121 @@
+@import '../../style/common.less';
+
+.@{prefix}popup-drill-down {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  &__header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex: none;
+    align-items: center;
+    height: @popup-drill-down-header-height;
+    color: @text-color-1;
+    font-size: @popup-drill-down-header-font-size;
+
+    &-left,
+    &-right {
+      position: absolute;
+      top: 50%;
+      display: flex;
+      align-items: center;
+      height: @popup-drill-down-header-btn-height;
+      padding: 0 @popup-drill-down-header-btn-padding;
+      transform: translateY(-50%);
+      transition-property: opacity;
+      will-change: opacity;
+    }
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+
+    &-title {
+      margin-right: -50%;
+      margin-left: 50%;
+      padding: 0 @popup-drill-down-header-title-padding;
+      font-weight: bold;
+      transform: translate(-50%);
+      transition-property: all;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background-color: @popup-drill-down-header-border-color;
+      transform: scaleY(0.5);
+      content: '';
+    }
+
+    &--adjacent {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 1;
+      width: 100%;
+      opacity: 0;
+      transition-property: margin, opacity;
+    }
+
+    &--left {
+      left: -50%;
+    }
+
+    &--right {
+      left: 50%;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+
+    &-track {
+      display: flex;
+      height: 100%;
+      transition-timing-function: ease-in-out;
+      transition-property: 'transform';
+    }
+  }
+
+  &-item {
+    position: relative;
+    flex: 1 0 auto;
+    width: 100%;
+    height: 100%;
+
+    &--target {
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.06);
+    }
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+.@{prefix}popup-drill-down__popup {
+  border-radius: @popup-drill-down-header-border-radius;
+}

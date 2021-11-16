@@ -1,0 +1,14 @@
+*.log*
+.cache
+.DS_Store
+.history
+.idea
+.vscode
+
+# npm
+node_modules
+package-lock.json
+
+# dist file
+es
+lib

@@ -1,0 +1,29 @@
+@import '../../style/common';
+
+.@{prefix}header-tabs {
+  position: relative;
+  width: 100%;
+  height: @header-height;
+  background-color: transparent;
+
+  &__box {
+    position: relative;
+    display: flex;
+  }
+
+  &__line {
+    position: absolute;
+    bottom: @header-line-bottom;
+    left: 0;
+    height: @header-line-height;
+    background-color: @header-line-color;
+    transition: @animation-duration-fast ease-in-out;
+    transition-property: width, transform;
+    will-change: width, transform;
+    .okui-border-radius(1);
+  }
+
+  &--primary &__line {
+    background-color: @white;
+  }
+}

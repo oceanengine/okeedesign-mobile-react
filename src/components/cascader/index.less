@@ -1,0 +1,83 @@
+@import '../../style/common';
+
+.@{prefix}cascader {
+  background-color: @cascader-bg-color;
+
+  &__columns {
+    display: flex;
+    flex-direction: row;
+    max-height: @cascader-max-height;
+  }
+
+  &__column {
+    flex: 1;
+    overflow-y: auto;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid @cascader-column-border-color;
+    }
+  }
+
+  &__row {
+    position: relative;
+    box-sizing: border-box;
+    min-height: @cascader-row-height;
+    padding: @cascader-row-padding-vertical @cascader-row-padding-horizontal;
+    overflow: hidden;
+    color: @cascader-row-color;
+
+    &--active {
+      color: @cascader-row-active-color;
+      background-color: @cascader-row-active-bg-color;
+    }
+
+    &--checked {
+      padding-right: @cascader-row-checked-padding-right;
+      color: @cascader-row-active-color;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      width: @cascader-row-icon-size;
+      height: @cascader-row-icon-size;
+      margin-right: @cascader-row-icon-margin-right;
+      overflow: hidden;
+      line-height: 0;
+      transform: translateY(-50%);
+      fill: @cascader-row-icon-color;
+    }
+
+    &-badge {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      width: @cascader-row-badge-size;
+      margin-right: (@cascader-row-padding-horizontal / 2);
+      color: @cascader-row-badge-color;
+      transform: translate(50%, -50%);
+    }
+
+    &__text {
+      // https://stackoverflow.com/questions/33058004/applying-an-ellipsis-to-multiline-text/41137262
+      display: -webkit-box;
+      overflow: hidden;
+      font-size: @cascader-row-font-size;
+      line-height: @cascader-row-line-height;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}

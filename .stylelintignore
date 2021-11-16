@@ -1,0 +1,6 @@
+# npm
+node_modules
+
+# src/style
+src/style/color-palette
+src/style/compat.less

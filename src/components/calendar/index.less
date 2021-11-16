@@ -1,0 +1,115 @@
+@import '../../style/common';
+
+.@{prefix}calendar {
+  color: @calendar--color;
+  background-color: @calendar-bg-color;
+
+  &__operations {
+    display: flex;
+    height: @calendar-operations-height;
+    color: @calendar-operations-color;
+
+    &__year,
+    &__month {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__hotzone {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 @calendar-operations-padding;
+    }
+
+    &__icon {
+      width: @calendar-operations-icon-size;
+      height: @calendar-operations-icon-size;
+    }
+
+    &__title {
+      font-weight: @calendar-operations-title-font-weight;
+      font-size: @calendar-operations-title-font-size;
+    }
+  }
+
+  &__panel {
+    overflow: hidden;
+
+    &-track {
+      display: flex;
+      transition-duration: 0;
+      transition-property: transform;
+    }
+
+    &-view {
+      flex: none;
+      width: 100%;
+    }
+
+    &__indicators,
+    &__date-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: calc(100% / 7);
+      height: @calendar-panel-item-height;
+      font-weight: @calendar-panel-item-font-weight;
+      font-size: @calendar-panel-item-font-size;
+      border-color: @calendar-panel-item-border-color;
+      border-style: solid;
+      border-width: @calendar-panel-item-border; /* no */
+      border-radius: @calendar-panel-item-border-radius;
+
+      &--isToday {
+        background-color: @calendar-panel-item-is-today-bg-color;
+      }
+
+      &--isWeekend {
+        color: @calendar-panel-item-is-weekend-color;
+      }
+
+      &--isCrossMonth {
+        color: @calendar-panel-item-is-cross-month-color;
+
+        &.@{prefix}calendar__panel__item--isWeekend {
+          color: @calendar-panel-item-is-weekend-is-cross-month-color;
+        }
+      }
+
+      &--isDisabled {
+        color: @calendar-panel-item-is-disabled-color;
+        background-color: @calendar-panel-item-is-disabled-bg-color;
+        &.@{prefix}calendar__panel__item--isWeekend {
+          color: @calendar-panel-item-is-weekend-is-cross-month-color;
+        }
+      }
+
+      &--isActive {
+        color: @calendar-panel-item-isActive-color;
+        background-color: @calendar-panel-item-isActive-bg-color;
+      }
+
+      &--isSurrounded {
+        background-color: @calendar-panel-item-isSurrounded-bg-color;
+      }
+
+      &--isLeft {
+        border-radius: @calendar-panel-item-is-left-border-radius;
+      }
+
+      &--isRight {
+        border-radius: @calendar-panel-item-is-right-border-radius;
+      }
+    }
+  }
+}

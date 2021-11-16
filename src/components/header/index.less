@@ -1,0 +1,77 @@
+@import '../../style/common';
+
+.@{prefix}header {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: @header-height;
+  background-color: @header-background-color;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+    width: 100%;
+  }
+
+  &__icon {
+    position: relative;
+    width: @header-icon-size;
+    height: @header-icon-size;
+    vertical-align: middle;
+    fill: @header-icon-fill;
+  }
+
+  &__left,
+  &__right,
+  &__title {
+    position: relative;
+    display: flex;
+    flex: 2;
+    flex-flow: row nowrap;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__left {
+    justify-content: flex-start;
+    padding-left: @header-padding-horizontal;
+  }
+
+  &__right {
+    justify-content: flex-end;
+    padding-right: @header-padding-horizontal;
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    flex: 8;
+    justify-content: center;
+    overflow: hidden;
+    color: @header-title-text-color;
+    font-weight: @header-title-font-weight;
+    font-size: @header-title-font-size;
+    letter-spacing: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &--primary {
+    background-color: @primary-color;
+  }
+
+  &--primary &__icon {
+    fill: @white;
+  }
+
+  &--primary &__title {
+    color: @white;
+  }
+}

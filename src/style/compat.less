@@ -1,0 +1,8 @@
+.remCompatMixin() {
+  @functions: ~`(function(){
+    this.remcompat = function(pxvalue) {
+      return pxvalue.replace(/px/g, 'PX');
+    }
+  })()`;
+}
+.remCompatMixin();

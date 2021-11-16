@@ -1,0 +1,82 @@
+@import '../../style/common';
+
+.@{prefix}search {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: @search-height;
+  padding: 0 @search-padding;
+  background-color: @white;
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: @search-content-height;
+    padding: 0 @search-content-padding;
+    color: @search-color;
+    font-size: @search-font-size;
+    background-color: @search-content-background-color;
+
+    &--round {
+      border-radius: @search-content-border-radius;
+    }
+
+    &--square {
+      border-radius: @search-content-square-border-radius;
+    }
+  }
+
+  &__btn {
+    flex: none;
+    margin-left: @search-content-padding;
+  }
+
+  &__icon {
+    width: @search-icon-height;
+    height: @search-icon-height;
+    margin-right: @search-icon-margin;
+  }
+
+  // override search style
+  // https://stackoverflow.com/questions/9421551/how-do-i-remove-all-default-webkit-search-field-styling
+  &__input {
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      appearance: none;
+    }
+
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: @search-icon-height;
+    line-height: @search-line-height;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    caret-color: @search-caret-color;
+
+    ::placeholder {
+      color: @search-placeholder-color;
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    right: @search-content-padding;
+    width: @search-font-size;
+    height: @search-font-size;
+    fill: @search-icon-fill;
+  }
+
+  &--large {
+    .@{prefix}search {
+      &__content {
+        height: @search-content-large-height;
+      }
+    }
+  }
+}

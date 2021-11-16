@@ -1,0 +1,78 @@
+@import '../../style/common';
+
+.@{prefix}progress {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  height: @progress-pivot-height;
+
+  &__track {
+    position: relative;
+    flex: 1;
+    height: @progress-bar-height;
+    background-color: @progress-track-color;
+    border-radius: (@progress-bar-height / 2);
+  }
+
+  &__bar {
+    position: relative;
+    width: 0;
+    height: 100%;
+    background-color: @progress-bar-color;
+    border-radius: (@progress-bar-height / 2);
+    will-change: width;
+  }
+
+  &__pivot {
+    position: relative;
+    display: flex;
+    flex: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: @progress-pivot-min-width;
+    min-height: @progress-pivot-height;
+    padding: 0 @progress-pivot-padding;
+    color: inherit;
+    font-size: @progress-pivot-font-size;
+    line-height: @progress-pivot-line-height;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: (@progress-pivot-height / 2);
+    will-change: transform;
+  }
+
+  &--pivot-float &__pivot {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    color: @progress-pivot-text-color-float;
+    background-color: @progress-bar-color;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  &--inactive &__track {
+    background-color: @progress-track-color-inactive;
+  }
+
+  &--inactive &__bar {
+    background-color: @progress-bar-color-inactive;
+  }
+
+  &--inactive&--pivot-float &__pivot {
+    color: @progress-pivot-text-color-float;
+    background-color: @progress-pivot-color-float-inactive;
+  }
+
+  &--complete &__bar {
+    background-color: @progress-bar-color-complete;
+  }
+
+  &--complete&--pivot-float &__pivot {
+    background-color: @progress-bar-color-complete;
+  }
+}

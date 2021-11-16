@@ -1,0 +1,142 @@
+@import '../../style/common';
+
+.@{prefix}cascader-sliding {
+  background-color: @cascader-sliding-bg-color;
+
+  &__header {
+    height: @cascader-sliding-header-height;
+    overflow-x: auto;
+    font-size: @cascader-sliding-header-font-size;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // in flexbox, overflow-x & padding-right appear on the same time, padding-right not working
+    // https://stackoverflow.com/questions/26888428/display-flex-loses-right-padding-when-overflowing
+    &__content {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      height: 100%;
+      padding: 0 @cascader-sliding-header-padding-horizontal;
+    }
+
+    &__placeholder {
+      color: @cascader-sliding-header-placeholder-color;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: @cascader-sliding-header-item-height;
+      padding: @cascader-sliding-header-item-padding;
+      color: @cascader-sliding-header-item-color;
+      white-space: nowrap;
+      background-color: @cascader-sliding-header-item-bg-color;
+      border-radius: @cascader-sliding-header-item-border-radius;
+
+      &--active {
+        color: @cascader-sliding-header-item-active-color;
+        background-color: @cascader-sliding-header-item-active-bg-color;
+      }
+
+      &-icon {
+        width: @cascader-sliding-header-icon-size;
+        height: @cascader-sliding-header-icon-size;
+        padding: 0 @cascader-sliding-header-icon-padding-horizontal;
+        fill: @cascader-sliding-header-icon-color;
+      }
+    }
+  }
+
+  &__column {
+    position: relative;
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid @cascader-sliding-column-border-color;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid @cascader-sliding-header-border-color;
+      content: '';
+    }
+  }
+
+  &__content {
+    height: @cascader-sliding-content-height;
+    overflow-x: hidden;
+
+    &-track {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      transition-duration: @animation-duration-base;
+      transition-property: transform;
+      will-change: transform;
+    }
+
+    &--single-column {
+      .@{prefix}cascader-sliding__column {
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  &__row {
+    position: relative;
+    height: @cascader-sliding-row-height;
+    padding: 0 @cascader-sliding-row-padding-horizontal;
+    overflow: hidden;
+    color: @cascader-sliding-row-color;
+    font-size: @cascader-sliding-row-font-size;
+    line-height: @cascader-sliding-row-height;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &--active {
+      color: @cascader-sliding-row-active-color;
+      background-color: @cascader-sliding-row-active-bg-color;
+    }
+
+    &--checked {
+      padding-right: @cascader-sliding-row-checked-padding-right;
+      color: @cascader-sliding-row-active-color;
+      background-color: @cascader-sliding-row-active-bg-color;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      width: @cascader-sliding-row-icon-size;
+      height: @cascader-sliding-row-icon-size;
+      margin-right: @cascader-sliding-row-icon-margin-right;
+      line-height: 0;
+      transform: translateY(-50%);
+      fill: @cascader-sliding-row-icon-color;
+    }
+
+    &-badge {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      width: @cascader-sliding-row-badge-size;
+      margin-right: (@cascader-sliding-row-padding-horizontal / 2);
+      color: @cascader-sliding-row-badge-color;
+      transform: translate(50%, -50%);
+    }
+  }
+}

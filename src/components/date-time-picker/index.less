@@ -1,0 +1,38 @@
+@import '../../style/common.less';
+
+.@{prefix}date-time-picker {
+  font-size: @date-time-picker-font-size;
+
+  &__range {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: @date-time-picker-range-height;
+    .@{prefix}button--large {
+      width: auto;
+      padding-right: @date-time-picker-padding;
+      padding-left: @date-time-picker-padding;
+    }
+
+    &__start {
+      position: absolute;
+      left: 0;
+    }
+
+    &__end {
+      position: absolute;
+      right: 0;
+    }
+
+    &__start,
+    &__end {
+      padding-right: @date-time-picker-padding;
+      padding-left: @date-time-picker-padding;
+
+      &--active {
+        color: @primary-color;
+      }
+    }
+  }
+}
