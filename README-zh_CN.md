@@ -1,6 +1,6 @@
 <p></p>
 <p align="center">
-  <img alt="logo" src="https://p6-addone.byteimg.com/tos-cn-i-hhc0kcolqq/ee318fee470640b3ac2b9ae3531b9037~tplv-hhc0kcolqq-image.image" height="32px" />
+  <img alt="logo" src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted_ui_mobile/0.1.7/static/logo.svg" height="32px" />
 </p>
 
 <h1 align="center">OKeeDesign Mobile React</h1>
