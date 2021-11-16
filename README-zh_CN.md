@@ -5,7 +5,7 @@
 
 <h1 align="center">OKeeDesign Mobile React</h1>
 
-<p align="center">OKeeDesign Mobile React is a mobile side component library based on OKeeDesign.</p>
+<p align="center">OKeeDesign Mobile React 是基于 OKeeDesign 设计体系的移动端组件库。</p>
 
 <p align="center">
     <img src="https://img.shields.io/npm/v/@okee-uikit/m-react" alt="npm version" />
@@ -14,42 +14,42 @@
     <img src="https://img.shields.io/bundlephobia/min/@okee-uikit/m-react" alt="min size" />
 </p>
 
-English | [简体中文](./README-zh_CN.md)
+[English](./README.md) | 简体中文
 
-## Features
+## 特性
 
-* Provide 36 highly qualified components, covering different situations on mobile side
-* Support internationalization, support 3 different languages
-* Support TypeScript
-* Support customizing theme
-* Support importing on demand
+* 提供 36 个高质量组件，覆盖移动端各类场景
+* 支持国际化，支持 3 种语言
+* 支持TypeScript
+* 支持主题定制
+* 支持按需引入
 
-## Quick Preview
+## 快速预览
 
-For more information, please refer to [Quick Start](https://okee.oceanengine.com/mobile/react/#/zh-CN/intro). Scan QR code below to experience components function.
+了解更多信息，请参考[快速上手](https://okee.oceanengine.com/mobile/react/#/zh-CN/intro)。可扫下方二维码，在线体验组件功能。
 
 <img alt="qr code" src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted_ui_mobile/0.1.7/static/opensource-preview-qrcode.png" height="100px" />
 
-## Run Locally node 8+
+## 本地运行 node 8+
 
 ```
 yarn
-yarn start
+yarn dev
 ```
 
-## Quick Start
+## 快速上手
 
 ```
 npm install @okee-uikit/m-react
 ```
 
-Global Import
+全局引入
 
 ```javascript
-import React from 'react';
+import react from 'react';
 import '@okee-uikit/m-react/lib/index.css';
 import { Button } from '@okee-uikit/m-react';
 ```
 
-## License
-OKeeDesign Mobile React MIT licensed.
+## 开源协议
+OKeeDesign Mobile React 基于MIT协议，可自由参与开源。
