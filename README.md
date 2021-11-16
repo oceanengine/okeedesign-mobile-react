@@ -1,6 +1,6 @@
 <p></p>
 <p align="center">
-  <img alt="logo" src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted-ui-m/static/online-vue-logo.png" height="32px" />
+  <img alt="logo" src="https://p6-addone.byteimg.com/tos-cn-i-hhc0kcolqq/ee318fee470640b3ac2b9ae3531b9037~tplv-hhc0kcolqq-image.image" height="32px" />
 </p>
 
 <h1 align="center">OKeeDesign Mobile React</h1>
@@ -26,7 +26,7 @@ English | [简体中文](./README-zh_CN.md)
 
 ## Quick Preview
 
-For more information, please refer to[Quick Start](https://okee.oceanengine.com/mobile/react/#/zh-CN/intro). Scan QR code below to experience components function.
+For more information, please refer to [Quick Start](https://okee.oceanengine.com/mobile/react/#/zh-CN/intro). Scan QR code below to experience components function.
 
 <img alt="qr code" src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted_ui_mobile/0.1.7/static/opensource-preview-qrcode.png" height="100px" />
 
